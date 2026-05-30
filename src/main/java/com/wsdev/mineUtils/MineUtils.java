@@ -1,6 +1,6 @@
 package com.wsdev.mineUtils;
 
-import com.wsdev.mineUtils.commands.FeedCommand;
+import com.wsdev.mineUtils.commands.feed.FeedCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 

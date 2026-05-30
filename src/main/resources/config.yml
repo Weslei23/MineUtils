@@ -1,0 +1,19 @@
+#Database config
+storage-method: "postgresql" # Change this to "sqlite" if you are not using an external server
+
+database:
+  host: "localhost"     # IP or hostname of your database server
+  port: 5432            # Your server port
+  name: "novo_database" # Name of the database schema
+  user: "postgres"      # Your database username
+  password: "12345678"  # Your database password
+
+# Commands permissions and message
+Feed:
+  HasPermission: false
+
+Health:
+  HasPermission: false
+
+Report:
+  HasPermission: false

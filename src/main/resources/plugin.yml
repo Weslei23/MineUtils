@@ -6,6 +6,14 @@ api-version: '26.1.2'
 load: POSTWORLD
 
 commands:
-  fly:
+  feed:
     description: "Restaura a fome do jogador."
     usage: /feed
+
+  health:
+    description: "Restaura a vida do jogador"
+    usage: /health
+
+  report:
+    description: "Utilizado para denunciar um jogador"
+    usage: /report <jogador> <motivo>

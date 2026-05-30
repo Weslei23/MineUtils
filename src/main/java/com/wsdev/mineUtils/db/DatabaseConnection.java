@@ -1,16 +1,24 @@
 package com.wsdev.mineUtils.db;
 
+import com.wsdev.mineUtils.MineUtils;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection
 {
-    public static Connection getDatabaseConnection() throws SQLException
+    public static Connection getDatabaseConnection()
     {
-        final String url = "jdbc:postgresql://localhost:5432/novo_database";
-        final String user = "postgres";
-        final String password = "12345678";
+
+        final String driver = MineUtils.getPluginConfig().getString( "storage-method" );
+        final String database = MineUtils.getPluginConfig().getString( "database.name" );
+        final String port = MineUtils.getPluginConfig().getString( "database.port" );
+        final String hostIP = MineUtils.getPluginConfig().getString( "database.host" );
+        final String user = MineUtils.getPluginConfig().getString( "database.user" );
+        final String password = MineUtils.getPluginConfig().getString( "database.password" );
+
+        final String url = "jdbc:" + driver + "://" + hostIP + ":" + port + "/" + database;
 
         try
         {

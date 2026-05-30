@@ -1,0 +1,11 @@
+name: MineUtils
+version: '${version}'
+
+main: com.wsdev.mineUtils.MineUtils
+api-version: '26.1.2'
+load: POSTWORLD
+
+commands:
+  fly:
+    description: "Restaura a fome do jogador."
+    usage: /feed

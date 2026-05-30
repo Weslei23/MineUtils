@@ -14,7 +14,7 @@ public class FeedCommand implements CommandExecutor
     {
         if ( !( sender instanceof Player player ) )
         {
-            sender.sendMessage( "§c[Info]: Voce não possui permissão para executar este comando." );
+            sender.sendMessage( "§c[Info]: Apenas jogadores podem executar este comando." );
             return true;
         }
 

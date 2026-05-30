@@ -17,3 +17,6 @@ Health:
 
 Report:
   HasPermission: false
+
+Reports:
+  HasPermission: false

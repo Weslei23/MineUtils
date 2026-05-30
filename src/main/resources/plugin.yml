@@ -17,3 +17,7 @@ commands:
   report:
     description: "Utilizado para denunciar um jogador"
     usage: /report <jogador> <motivo>
+
+  reports:
+    description: "Utilizado para ver uma lista de jogadores reportados"
+    usage: /reports

@@ -1,5 +1,6 @@
 package com.wsdev.mineUtils.commands.report.utilities;
 
+import com.wsdev.mineUtils.MineUtils;
 import com.wsdev.mineUtils.commands.report.data.Report;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -17,10 +18,10 @@ public class ReportCommand implements CommandExecutor
     {
         if ( !( sender instanceof Player player ) )
         {
-            sender.sendMessage( "§c[Info]: Voce não possui permissão para executar este comando." );
+            sender.sendMessage( "§c[Info]: Apenas jogadores podem executar este comando." );
             return true;
         }
-        boolean hasPermission  = false;
+        boolean hasPermission  = MineUtils.getPluginConfig().getBoolean( "Report.hasPermission" );
 
         if ( hasPermission && !player.hasPermission( "ws.report" ) )
         {

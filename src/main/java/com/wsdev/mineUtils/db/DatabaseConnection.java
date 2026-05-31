@@ -10,7 +10,6 @@ public class DatabaseConnection
 {
     public static Connection getDatabaseConnection()
     {
-
         final String driver = MineUtils.getPluginConfig().getString( "storage-method" );
         final String database = MineUtils.getPluginConfig().getString( "database.name" );
         final String port = MineUtils.getPluginConfig().getString( "database.port" );
@@ -22,9 +21,14 @@ public class DatabaseConnection
 
         try
         {
+            if ( "postgresql".equalsIgnoreCase( driver ) )
+            {
+                Class.forName( "org.postgresql.Driver" );
+            }
+
             return DriverManager.getConnection( url, user, password );
         }
-        catch ( SQLException e )
+        catch ( SQLException | ClassNotFoundException e )
         {
             throw new RuntimeException( e );
         }

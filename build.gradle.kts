@@ -1,6 +1,8 @@
 plugins {
     id("java-library")
     id("xyz.jpenilla.run-paper") version "3.0.2"
+    id("com.gradleup.shadow") version "8.3.0"
+
 }
 
 repositories {
@@ -10,7 +12,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
-    compileOnly("org.postgresql:postgresql:42.7.7")
+    implementation("org.postgresql:postgresql:42.7.7")
 }
 
 java {

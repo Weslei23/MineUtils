@@ -22,7 +22,7 @@ public class ReportManager
         try( PreparedStatement preparedStatement = connection.prepareStatement( sql ) )
         {
 
-            preparedStatement.setString( 1, report.getPlayerId().toString() );
+            preparedStatement.setObject( 1, report.getPlayerId() );
             preparedStatement.setString( 2, report.getDescription() );
             preparedStatement.setTimestamp( 3, java.sql.Timestamp.valueOf( report.getReportedAt() ) );
 
@@ -44,7 +44,7 @@ public class ReportManager
             if( resultSet.next() )
             {
                return new Report(
-                       UUID.fromString( "playerId" ),
+                       resultSet.getObject( "playerId", UUID.class ),
                        resultSet.getString( "description" ),
                        resultSet.getTimestamp( "reportedAt" ).toLocalDateTime() );
             }
@@ -65,7 +65,7 @@ public class ReportManager
             while( resultSet.next() )
             {
                 reports.add( new Report(
-                        UUID.fromString( "playerId" ),
+                        resultSet.getObject( "playerId", UUID.class ),
                         resultSet.getString( "description" ),
                         resultSet.getTimestamp( "reportedAt" ).toLocalDateTime() ) );
             }

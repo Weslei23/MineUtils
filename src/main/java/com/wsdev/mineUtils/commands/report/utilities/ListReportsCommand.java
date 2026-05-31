@@ -44,10 +44,10 @@ public class ListReportsCommand implements CommandExecutor
 
                 if( reportedPlayer != null )
                 {
-                    player.sendMessage( "Jogadores reportados: \n"
-                            + "Nome: " + reportedPlayer.getName() + "\n"
-                            + "Motivo: " + report.getDescription() + "\n"
-                            + "Reportado em: " + formatter.format( report.getReportedAt() ) );
+                    player.sendMessage( "§c[Info]: Jogadores reportados: \n"
+                            + "§cNome: §7" + reportedPlayer.getName() + "\n"
+                            + "§cMotivo: §7" + report.getDescription() + "\n"
+                            + "§cReportado em: §7" + formatter.format( report.getReportedAt() ) );
                 }
             }
         }

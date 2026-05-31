@@ -68,6 +68,7 @@ public class ReportCommand implements CommandExecutor
             throw new RuntimeException( e );
         }
 
+        player.sendMessage( "§c[Info]: §7Reportado com sucesso." );
         return true;
     }
 }

@@ -2,6 +2,7 @@ package com.wsdev.mineUtils.commands.report.utilities;
 
 import com.wsdev.mineUtils.MineUtils;
 import com.wsdev.mineUtils.commands.report.data.Report;
+import com.wsdev.mineUtils.commands.report.manager.ReportManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,10 +10,18 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 public class ReportCommand implements CommandExecutor
 {
+    private ReportManager reportManager;
+
+    public ReportCommand( ReportManager reportManager )
+    {
+        this.reportManager = reportManager;
+    }
+
     @Override
     public boolean onCommand( @NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args )
     {
@@ -56,6 +65,15 @@ public class ReportCommand implements CommandExecutor
                 LocalDateTime.now()
         );
 
+        try
+        {
+            reportManager.addReport( report );
+        }
+        catch ( SQLException e )
+        {
+            throw new RuntimeException( e );
+        }
+        
         return true;
     }
 }

@@ -73,7 +73,7 @@ public class ReportCommand implements CommandExecutor
         {
             throw new RuntimeException( e );
         }
-        
+
         return true;
     }
 }

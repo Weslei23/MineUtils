@@ -10,7 +10,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
-    implementation("org.postgresql:postgresql:42.7.7")
+    compileOnly("org.postgresql:postgresql:42.7.7")
 }
 
 java {

@@ -27,9 +27,8 @@ public class HealthCommand implements CommandExecutor
         }
 
         player.setHealth( 20.0f );
-        player.setHealthScale( 20.0f );
 
-        player.sendMessage( "§a[Info]: Fome restaurada com sucesso!" );
+        player.sendMessage( "§a[Info]: Vida restaurada com sucesso!" );
 
         return true;
     }

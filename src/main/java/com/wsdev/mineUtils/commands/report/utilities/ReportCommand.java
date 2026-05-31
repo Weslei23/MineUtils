@@ -15,13 +15,6 @@ import java.time.LocalDateTime;
 
 public class ReportCommand implements CommandExecutor
 {
-    private ReportManager reportManager;
-
-    public ReportCommand( ReportManager reportManager )
-    {
-        this.reportManager = reportManager;
-    }
-
     @Override
     public boolean onCommand( @NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args )
     {
@@ -67,6 +60,7 @@ public class ReportCommand implements CommandExecutor
 
         try
         {
+            ReportManager reportManager = new ReportManager();
             reportManager.addReport( report );
         }
         catch ( SQLException e )

@@ -1,7 +1,7 @@
-package com.wsdev.mineUtils.commands.report.manager;
+package com.wsdev.mineUtils.Commands.Report.DAO;
 
-import com.wsdev.mineUtils.commands.report.data.Report;
-import com.wsdev.mineUtils.db.DatabaseConnection;
+import com.wsdev.mineUtils.Commands.Report.Data.Report;
+import com.wsdev.mineUtils.Utils.ApplicationContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,10 +11,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ReportManager
+/**
+ * @author Weslei
+ */
+public class ReportDAO
 {
-    private Connection connection = DatabaseConnection.getDatabaseConnection();
+    private Connection connection;
 
+    public ReportDAO()
+    {
+        connection = ApplicationContext.getInstance().getConnection();
+    }
+
+    /**
+     * Insert a new report in to table
+     * @param report
+     * @throws SQLException
+     */
     public void addReport( Report report ) throws SQLException
     {
         String sql = "INSERT INTO tb_reports (playerId, description, reportedAt) VALUES (?,?,?)";
@@ -30,6 +43,12 @@ public class ReportManager
         }
     }
 
+    /**
+     * Get the player with id
+     * @param playerId
+     * @return
+     * @throws SQLException
+     */
     public Report getReport( String playerId ) throws SQLException
     {
         String sql = "SELECT playerId, description, reportedAt FROM tb_reports WHERE playerId = ?";
@@ -52,6 +71,11 @@ public class ReportManager
         return null;
     }
 
+    /**
+     * Get all reports
+     * @return
+     * @throws SQLException
+     */
     public List<Report> getReports() throws SQLException
     {
         String sql = "SELECT playerId, description, reportedAt FROM tb_reports";

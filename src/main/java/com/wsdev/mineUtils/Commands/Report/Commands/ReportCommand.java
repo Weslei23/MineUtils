@@ -1,8 +1,8 @@
-package com.wsdev.mineUtils.commands.report.utilities;
+package com.wsdev.mineUtils.Commands.Report.Commands;
 
 import com.wsdev.mineUtils.MineUtils;
-import com.wsdev.mineUtils.commands.report.data.Report;
-import com.wsdev.mineUtils.commands.report.manager.ReportManager;
+import com.wsdev.mineUtils.Commands.Report.Data.Report;
+import com.wsdev.mineUtils.Commands.Report.DAO.ReportDAO;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,8 +13,19 @@ import org.jetbrains.annotations.NotNull;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+/**
+ * @author Weslei
+ */
 public class ReportCommand implements CommandExecutor
 {
+    /**
+     * Build command
+     * @param sender Source of the command
+     * @param command Command which was executed
+     * @param label Alias of the command which was used
+     * @param args Passed command arguments
+     * @return
+     */
     @Override
     public boolean onCommand( @NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args )
     {
@@ -60,8 +71,8 @@ public class ReportCommand implements CommandExecutor
 
         try
         {
-            ReportManager reportManager = new ReportManager();
-            reportManager.addReport( report );
+            ReportDAO reportDAO = new ReportDAO();
+            reportDAO.addReport( report );
         }
         catch ( SQLException e )
         {

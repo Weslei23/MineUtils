@@ -1,9 +1,9 @@
 package com.wsdev.mineUtils;
 
-import com.wsdev.mineUtils.commands.feed.FeedCommand;
-import com.wsdev.mineUtils.commands.health.HealthCommand;
-import com.wsdev.mineUtils.commands.report.utilities.ListReportsCommand;
-import com.wsdev.mineUtils.commands.report.utilities.ReportCommand;
+import com.wsdev.mineUtils.Commands.Feed.FeedCommand;
+import com.wsdev.mineUtils.Commands.Health.HealthCommand;
+import com.wsdev.mineUtils.Commands.Report.Commands.ReportsListCommand;
+import com.wsdev.mineUtils.Commands.Report.Commands.ReportCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -40,6 +40,6 @@ public final class MineUtils extends JavaPlugin
         if( getCommand( "feed" ) != null ) getCommand( "feed" ).setExecutor( new FeedCommand() );
         if( getCommand( "health" ) != null ) getCommand( "health" ).setExecutor( new HealthCommand() );
         if( getCommand( "report" ) != null ) getCommand( "report" ).setExecutor( new ReportCommand() );
-        if( getCommand( "reports" ) != null ) getCommand( "reports" ).setExecutor( new ListReportsCommand() );
+        if( getCommand( "reports" ) != null ) getCommand( "reports" ).setExecutor( new ReportsListCommand() );
     }
 }

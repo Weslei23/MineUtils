@@ -1,4 +1,4 @@
-package com.wsdev.mineUtils.commands.feed;
+package com.wsdev.mineUtils.Commands.Feed;
 
 import com.wsdev.mineUtils.MineUtils;
 import org.bukkit.command.Command;
@@ -7,8 +7,19 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * @author Weslei
+ */
 public class FeedCommand implements CommandExecutor
 {
+    /**
+     * Build command
+     * @param sender Source of the command
+     * @param command Command which was executed
+     * @param label Alias of the command which was used
+     * @param args Passed command arguments
+     * @return
+     */
     @Override
     public boolean onCommand( @NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args )
     {
